@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Laptop 1 (outline) -->
+  <rect x="10" y="30" width="40" height="30" rx="2" ry="2" fill="none" stroke="#999" stroke-width="2"/>
+  <rect x="5" y="60" width="50" height="5" rx="2" ry="2" fill="#999"/>
+  
+  <!-- Laptop 2 (filled) -->
+  <rect x="50" y="30" width="40" height="30" rx="2" ry="2" fill="#000"/>
+  <rect x="45" y="60" width="50" height="5" rx="2" ry="2" fill="#000"/>
+  
+  <!-- Check mark -->
+  <circle cx="70" cy="45" r="10" fill="#4cd964"/>
+  <path d="M65,45 L68,48 L75,41" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> 

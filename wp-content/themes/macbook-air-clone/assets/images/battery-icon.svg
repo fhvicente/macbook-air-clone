@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" width="100" height="60">
+  <!-- Corpo da bateria -->
+  <rect x="10" y="20" width="70" height="30" rx="3" ry="3" fill="none" stroke="#1d1d1f" stroke-width="2"/>
+  
+  <!-- Terminal da bateria -->
+  <rect x="80" y="27.5" width="5" height="15" rx="1" ry="1" fill="#1d1d1f"/>
+  
+  <!-- Nível de carga (cheio) -->
+  <rect x="15" y="25" width="60" height="20" rx="1" ry="1" fill="#67b35c"/>
+  
+  <!-- Símbolo de raio -->
+  <path d="M45,25 L35,40 L45,40 L40,55 L55,35 L45,35 Z" fill="#fff"/>
+</svg> 

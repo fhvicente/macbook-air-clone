@@ -1,0 +1,66 @@
+/* Footer Styles */
+.ac-gf-footer {
+    padding: 17px 0 11px;
+    color: #6e6e73;
+    font-size: 12px;
+    line-height: 1.33337;
+    letter-spacing: -0.01em;
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    border-top: 1px solid #d2d2d7;
+    margin-top: 20px;
+}
+
+.ac-gf-footer-shop {
+    margin-bottom: 7px;
+}
+
+.ac-gf-footer-shop a {
+    color: #06c;
+    text-decoration: none;
+}
+
+.ac-gf-footer-shop a:hover {
+    text-decoration: underline;
+}
+
+.ac-gf-footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ac-gf-footer-legal-copyright {
+    margin-right: 30px;
+}
+
+.ac-gf-footer-legal-links {
+    margin-right: 30px;
+}
+
+.ac-gf-footer-legal-link {
+    color: #6e6e73;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.ac-gf-footer-legal-link:hover {
+    text-decoration: underline;
+}
+
+.ac-gf-footer-legal-link-separator {
+    color: #d2d2d7;
+    margin: 0 5px;
+}
+
+.ac-gf-footer-locale {
+    margin-left: auto;
+}
+
+.ac-gf-footer-locale-link {
+    color: #6e6e73;
+    text-decoration: none;
+}
+
+.ac-gf-footer-locale-link:hover {
+    text-decoration: underline;
+}

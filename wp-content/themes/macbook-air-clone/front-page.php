@@ -7,23 +7,26 @@
             <div class="hero-background">
                 <div class="content-container">
                     <div class="hero-headline">
-                        <h1>Macbook Air</h1>
-                        <p class="gradient-text-blue">Speed of lightness.</p>
+                        <h1><?php echo get_field('hero_title') ?: 'Macbook Air'; ?></h1>
+                        <p class="gradient-text-blue"><?php echo get_field('hero_subtitle') ?: 'Speed of lightness.'; ?></p>
                     </div>
                     <div class="inline-media">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/macbook_air_mx.png" alt="M3 chip visualization">
+                        <?php 
+                        $hero_image = get_field('hero_image');
+                        if($hero_image): ?>
+                            <img src="<?php echo $hero_image; ?>" alt="M3 chip visualization">
+                        <?php else: ?>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/macbook_air_mx.png" alt="M3 chip visualization">
+                        <?php endif; ?>
                     </div>
                     <div class="hero-copy">
-                        <p class="apple-inteligence typography-hero-headline-reduced">Built for Apple Inteligence</p>
+                        <p class="apple-inteligence typography-hero-headline-reduced">Built for Apple Inteligence.</p>
                         <div class="ctabutton">
-                            <a href="#" class="btn-primary">Pre-order</a>
+                            <a href="#" class="btn-primary">Buy</a>
                         </div>
-                        <p class="price">From $999 or $83.25/mo. for 12 mo.**</p>
-                        <p>Available starting 3.12</p>
-                        <div class="hero-body-copy typography-section-intro-elevated">
-                            <p>
-                                MacBook Air is the world's most popular laptop for a reason. Actually, for a lot of reasons. It delivers <span class="strong">up to 18 hours of battery life</span>.1 <span class="strong">The M4</span> chip unlocks a whole new level of performance for work and play. <span class="strong">Apple Intelligence</span> is built in to help you get things done effortlessly.2 And it now comes in a stunning Sky Blue color. With the perfectly portable MacBook Air, you'll be ready to take on just about anything, anywhere.
-                            </p>
+                        <p class="price"><?php echo get_field('hero_price') ?: 'From $999 or $83.25/mo. for 12 mo.**'; ?></p>
+                        <div class="hero-body-copy typography-section-intro-elevated large-10">
+                            <?php echo get_field('hero_description'); ?>
                         </div>
                     </div>
                 </div>
@@ -35,13 +38,19 @@
     <article id="design" data-aos="fade-up">
         <div class="article-design-title">
             <h2 class="typography-section-label">Design</h2>
-            <p class="gradient-text-blue typography-section-headline">Built to go places.</p>
+            <p class="gradient-text-blue typography-section-headline"><?php echo get_field('design_title') ?: 'Built to go places.'; ?></p>
         </div>
         <div class="design-media-article">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/macbook_air_design.png" alt="M3 chip visualization">
+            <?php 
+            $design_image = get_field('design_image');
+            if($design_image): ?>
+                <img src="<?php echo $design_image; ?>" alt="MacBook Air Design">
+            <?php else: ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/macbook_air_design.png" alt="MacBook Air Design">
+            <?php endif; ?>
         </div>
         <div class="section-content hero-body-copy typography-section-intro-elevated" style="text-align: left;">
-            <p><strong>Remarkably light and less than half an inch thin,</strong> MacBook Air fits easily into your on-the-go lifestyle — and your bag. MacBook Air with M4 is made with over 50 percent recycled materials and has a durable recycled aluminum enclosure.</p>
+            <?php echo get_field('design_description'); ?>
         </div>
         <div class="sub-section">
             <div class="article-sub-section-size section-content hero-body-copy typography-section-intro-elevated">
@@ -63,18 +72,16 @@
             <div class="slider-sub-section-lifestyle">
                 <div class="slider-container">
                     <div class="slider-images">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-1.png" alt="MacBook Air 1">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-2.png" alt="MacBook Air 2">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-3.png" alt="MacBook Air 3">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-1.png" alt="MacBook Air 1" class="slide-image" data-caption="Incredibly light and thin, <strong>MacBook Air fits easily in your backpack.</strong>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-2.png" alt="MacBook Air 2" class="slide-image" data-caption="With <strong>up to 18 hours of battery life,</strong> you can get work done anywhere you go.">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-3.png" alt="MacBook Air 3" class="slide-image" data-caption="Available in four stunning colors <strong>to match any style.</strong>">
                     </div>
                     <div class="slider-navigation">
                         <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
                         <button class="next" onclick="moveSlide(1)">&#10095;</button>                    
                     </div>
                 </div>
-                <p class="section-content hero-body-copy typography-section-intro-elevated" style="margin-top: 7px;">
-                    Incredibly light and thin, <strong>MacBook Air fits easily in your backpack.</strong>
-                </p>
+                <p id="slide-caption" class="section-content hero-body-copy typography-section-intro-elevated"></p>
             </div>
         </div>
     </article>
@@ -89,10 +96,11 @@
             <div class="article-media">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/macbook_air_performance.png" alt="Performance">
             </div>
-            <div class="performance-stats section-content hero-body-copy typography-section-intro-elevated">
+            <div class="performance-stats section-content hero-body-copy badge-caption">
                 <div class="m4-logo">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/m4-logo.jpg" alt="Apple M4">
                 </div>
+                <hr class="vertical-divider"></hr>
                 <div class="performance-metrics">
                     <div class="metric">
                         <div class="metric-header">Up to</div>
@@ -153,31 +161,45 @@
             <div class="gallery-tabs-wrapper">
                 <div class="tablist">
                     <ul>
-                        <li class="tab-item active">Writing Tools</li>
-                        <li class="tab-item">Image Playground</li>
-                        <li class="tab-item">Siri</li>
+                        <li class="tab-item active gradient-apple-inteligence" data-tab="writing-tools">Writing Tools</li>
+                        <li class="tab-item" data-tab="image-playground">Image Playground</li>
+                        <li class="tab-item" data-tab="siri">Siri</li>
                     </ul>
                 </div>
-                <div class="tab-description">
-                    <p>Use Apple Intelligence to summarize your text and rewrite different versions with a click. Or use Genmoji to help identify key concepts in your document. Use Command to help identify key concepts in your document. Or ask ChatGPT to create content from scratch.</p>
+                <div class="tab-content">
+                    <div id="writing-tools" class="tab-pane active">
+                        <div class="tab-description typography-section-intro">
+                            <p>Use Apple Intelligence to summarize your text and rewrite different versions with a click. Or use Genmoji to help identify key concepts in your document. Use Command to help identify key concepts in your document. Or ask ChatGPT to create content from scratch.</p>
+                        </div>
+                    </div>
+                    <div id="image-playground" class="tab-pane">
+                        <div class="tab-description typography-section-intro">
+                            <p>Transform your photos with Image Playground. Generate new images based on your descriptions, modify existing photos, or remove unwanted elements with just a few taps. Create stunning visuals for your projects with ease.</p>
+                        </div>
+                    </div>
+                    <div id="siri" class="tab-pane">
+                        <div class="tab-description typography-section-intro">
+                            <p>Siri is now more intelligent and contextually aware than ever. Ask complex questions, control your devices, or get personalized recommendations. With improved natural language processing, Siri understands your needs better and provides more helpful responses.</p>
+                        </div>
+                    </div>
                 </div>
-                </div>
+            </div>
             </div>
             <div class="privacy-section">
             <div class="privacy-icon">
-                <svg viewBox="0 0 24 24" width="56" height="56" fill="black">
-                    <path d="M12 1C8.676 1 6 3.676 6 7v3H4v13h16V10h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v3H8V7c0-2.276 1.724-4 4-4z"/>
-                </svg>
-                </div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/privacy_endframe.png" alt="privacy_endframe">
+            </div>
             <div class="privacy-content">
-                <h3 class="privacy-title">Great powers come with great privacy.</h3>
+                <div style="margin-top: 20px; margin-bottom: 50px;">
+                    <h3 class="privacy-title typography-section-headline-reduced">Great powers come with great <strong>privacy.</strong></h3>
+                </div>
                     <div class="privacy-copy">
-                    <div class="privacy-column">
-                        <p>Apple Intelligence is designed to protect your privacy at every step. It's integrated into the core of your Mac through on-device processing. So it's aware of your personal information without collecting your personal information.</p>
-                    </div>
-                    <div class="privacy-column">
-                        <p>And with groundbreaking Private Cloud Compute, Apple Intelligence can draw on larger server-based models, running on Apple silicon, to handle more complex requests for you while protecting your privacy.</p>
-                    </div>
+                        <div class="privacy-column typography-section-intro">
+                            <p>Apple Intelligence is designed to protect your privacy at every step. It's integrated into the core of your Mac through on-device processing. So it's aware of your personal information without collecting your personal information.</p>
+                        </div>
+                        <div class="privacy-column typography-section-intro">
+                            <p>And with groundbreaking Private Cloud Compute, Apple Intelligence can draw on larger server-based models, running on Apple silicon, to handle more complex requests for you while protecting your privacy.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -187,7 +209,7 @@
     <!-- Mac Plus Article -->
     <article id="dream-team" data-aos="fade-up">
         <div class="section-content">
-        <div class="article-mac-plus-title">
+            <div class="article-mac-plus-title">
                 <h2 class="typography-section-label">MAC + IPHONE</h2>
                 <p class="gradient-text-blue typography-section-headline">Dream team.</p>
             </div>
@@ -201,9 +223,8 @@
                     </button>
                 </div>
                 <div class="dream-team-copy">
-                    <p class="dream-team-intro">If you love iPhone, you'll love Mac.</p>
-                    <p class="dream-team-description">Mac is designed to be just as easy to learn as iPhone. Whether you're using iPhone Mirroring to view and control your iPhone from your Mac,<sup>23</sup> copying text on your iPhone to paste on your Mac, or locating devices with Find My — when you use Mac with iPhone, they work together like magic.</p>
-        </div>
+                    <p class="dream-team-description"><strong>If you love iPhone, you'll love Mac.</strong> Mac is designed to be just as easy to learn as iPhone. Whether you're using iPhone Mirroring to view and control your iPhone from your Mac,<sup>23</sup> copying text on your iPhone to paste on your Mac, or locating devices with Find My — when you use Mac with iPhone, they work together like magic.</p>
+                </div>
             </div>
         </div>
     </article>
